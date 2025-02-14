@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- <div class="container pt-5" id="app">
+        <div class="card center">
+            <h1>{{ title }}: {{ counter }}</h1>
+            <div>
+                <button class="btn primary" v-on:click="counter++">Добавить</button>
+                <button class="btn danger" v-on:click="counter--">Вычесть</button>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-5" id="app2">
+        <div class="card center">
+            <h1>{{ title }}: {{ counter }}</h1>
+            <div>
+                <button class="btn primary" v-on:click="counter++">Добавить</button>
+                <button class="btn danger" v-on:click="counter--">Вычесть</button>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="container" id="form">
+        <div class="card">
+            <h1 :style="{
+                color: inputValue.length < 6 ? 'red' : 'blue'
+            }">{{ title }}</h1>
+            <div class="form-control">
+            <input 
+                type="text" 
+                v-bind:placeholder="myPlaceholder" 
+                v-bind:value="inputValue"
+                v-on:input="inputChangeHandler"
+            />
+            </div>
+            <button class="btn" v-on:click="addNewNote">Добавить</button>
+            <button class="btn" v-on:click="addNewCountNotes">Добавить количество</button>
+            <hr />
+            <h2 class="ulCount">Количество заметок {{ notes.length }}</h2>
+            <ul class="list" v-if="notes.length != 0">
+                <li class="list-item" v-for="(note,idx) in notes">
+                    <span :class="note.length < 10 ? 'primary' : 'bold'"><b>Заметка № {{ idx + 1 }}:</b> {{ note }}</span>
+                <button class="btn danger" v-on:click="removeNote(idx)">Удалить заметку</button>
+                </li>
+            </ul>
+            <div v-else="">Заметки пусты</div>
+        </div>
+    </div> -->
+<!-- 
+    <div class="container" id="table">
+        <div class="form-control card">
+            <h1>Создание таблицы</h1>
+            <input
+            type="text"
+            id="rows"
+            placeholder="Введите количество рядов"
+            v-bind:value="rows">
+            <input
+            type="text"
+            id="cols"
+            placeholder="Введите количество колонок"
+            v-bind:value="cols">
+            <button class="btn" v-on:click="createTable()">Создать таблицу</button>
+            <table>
+                {{rows}} {{cols}}
+            </table>
+        </div>
+        
+    </div> -->
+    
+    <!-- <div class="container" id="form">
+        <div class="card">
+            <h1>{{ title }}</h1>
+            <div class="form-control">
+                <input 
+                type="text" 
+                v-bind:placeholder="myPlaceholder" 
+                v-model="inputValue"
+            />
+            <input 
+                type="text" 
+                v-bind:placeholder="mySecondPlaceholder" 
+                v-model="inputValueSecond"
+            />
+            <input 
+                type="text" 
+                v-bind:placeholder="myPlaceholder" 
+                :value="inputValue"
+                @:input="inputChangeHandler"
+            />
+            <input 
+                type="text" 
+                v-bind:placeholder="mySecondPlaceholder" 
+                :value="inputValueSecond"
+                @:input="inputChangeHandlerSecond"
+            />
+            </div>
+            <button class="btn" @:click="addYears">Добавить високосные года</button>
+            <button class="btn" v-on:click="addNewCountNotes">Добавить количество</button>
+            <hr />
+            <h2 class="ulCount">Количество годов {{ notes.length }}</h2>
+            <ul class="list">
+                <li class="list-item" v-for="(note,idx) in notes">
+                    <b>Год: {{idx + 1}}</b> {{ note }}
+                <button class="btn danger" v-on:click="removeNote(idx)">Удалить заметку</button>
+                </li>
+            </ul>
+            <div v-else="">Заметки пусты</div>
+        </div> -->
+    </div>
+
+    <!-- <div class="container" id="form">
+        <div class="card">
+            <h1>{{ title }}</h1>
+            <div class="form-control">
+                <input 
+                type="text" 
+                v-bind:placeholder="myPlaceholder" 
+                v-model="inputValue"
+            />
+            <select name="" id="" v-model="selectValue">
+                <option value="" selected>Выберите</option>
+                <option>{{privateOpt}}</option>
+                <option>{{groceriesOpt}}</option>
+                <option>{{importantOpt}}</option>
+            </select>
+            </div>
+            <button class="btn" @:click="addTask">Добавить покупку</button>
+            <ul class="list">
+                <ul v-if="private.length != 0" class="list private"><h2>{{privateOpt}} ({{private.length}})</h2>
+                    <li class="list-item" v-for="(task, idx) in private">
+                        <i>{{task}}</i>
+                        <button class="btn danger" v-on:click="removeNotePr(idx)">X</button>
+                    </li>
+                </ul>
+                <ul v-if="groceries.length != 0" class="list groceries"><h2>{{groceriesOpt}} ({{groceries.length}})</h2>
+                    <li class="list-item" v-for="(task, idx) in groceries">
+                        <i>{{task}}</i>
+                        <button class="btn danger" v-on:click="removeNoteGr(idx)">X</button>
+                    </li>
+                </ul>
+                <ul v-if="important.length != 0" class="list important"><h2>{{importantOpt}} ({{important.length}})</h2>
+                    <li class="list-item" v-for="(task, idx) in important">
+                        <i>{{task}}</i>
+                        <button class="btn danger" v-on:click="removeNoteIm(idx)">X</button>
+                    </li>
+                </ul>
+            </ul>
+            <h1 v-show="private.length === 0 && groceries.length === 0 && important.length === 0">пусто</h1>
+        </div> -->
+        
+        <div class="container card" id="app">
+                <h1>Конвертек</h1>
+                <div class="form-control">
+                    <input type = "number"
+                    v-model = "amount"
+                    placeholder = "введите число денег"><br>
+                    <span>выберите откуда конвертировать</span>
+                    <select v-model = "convertFrom">
+                        <option>{{usd}}</option>
+                        <option>{{cny}}</option>
+                        <option>{{jpy}}</option>
+                    </select><br>
+                    <span>выберите куда конвертировать</span>
+                    <select v-model = "convertTo">
+                        <option>{{usd}}</option>
+                        <option>{{cny}}</option>
+                        <option>{{jpy}}</option>
+                    </select><br>
+                </div>
+            <button class="btn" @:click="countCurrency">Рассчитать валюту</button><br><br>
+                <span> {{amount}} {{convertFrom}} равно {{finalAmount}} {{convertTo}}</span>
+        </div>
+    </body>
+ </html>
+    <script src="scripts/vue.global.js"></script>
+    <script src="scripts/myScript.js"></script>
+</body>
+</html>
+
