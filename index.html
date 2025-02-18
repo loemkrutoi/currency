@@ -163,15 +163,15 @@
                     placeholder = "введите число денег"><br>
                     <span>выберите откуда конвертировать</span>
                     <select v-model = "convertFrom">
-                        <option>{{usd}}</option>
-                        <option>{{cny}}</option>
-                        <option>{{jpy}}</option>
+                        <option>{{usdFrom}}</option>
+                        <option>{{cnyFrom}}</option>
+                        <option>{{jpyFrom}}</option>
                     </select><br>
                     <span>выберите куда конвертировать</span>
                     <select v-model = "convertTo">
-                        <option>{{usd}}</option>
-                        <option>{{cny}}</option>
-                        <option>{{jpy}}</option>
+                        <option>{{usdTo}}</option>
+                        <option>{{cnyTo}}</option>
+                        <option>{{jpyTo}}</option>
                     </select><br>
                 </div>
             <button class="btn" @:click="countCurrency">Рассчитать валюту</button><br><br>

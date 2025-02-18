@@ -171,19 +171,22 @@ const {createApp} = Vue
 Vue.createApp({
     data() {
         return{
-            fromCurrency:[
-                {usd: "USD"},
-                {cny: "CNY"},
-                {jpy: "JPY"},
-            ],
-            toCurrency:[
-                {usd: "USD"},
-                {cny: "CNY"},
-                {jpy: "JPY"},
-            ],
-            usd: "USD",
-            cny: "CNY",
-            jpy: "JPY",
+            // fromCurrency:[
+            //     {usd: "USD"},
+            //     {cny: "CNY"},
+            //     {jpy: "JPY"},
+            // ],
+            // toCurrency:[
+            //     {usd: "USD"},
+            //     {cny: "CNY"},
+            //     {jpy: "JPY"},
+            // ],
+            usdFrom: "USD",
+            cnyFrom: "CNY",
+            jpyFrom: "JPY",
+            usdTo: "USD",
+            cnyTo: "CNY",
+            jpyTo: "JPY",
             amount: '',
             finalAmount: 0,
             convertFrom: '',
@@ -192,14 +195,25 @@ Vue.createApp({
     },
     methods:{
         countCurrency(){
-            if(this.fromCurrency == 'usd' && this.toCurrency == 'cny'){
-                amount 
+            if(this.convertFrom == this.convertTo){
+                return finalAmount = this.amount;
             }
+            else if(this.convertFrom == this.usdFrom && this.convertTo == this.cnyTo){
+                this.finalAmount = this.amount * 2;
+            }
+            else if(this.convertFrom == this.usdFrom && this.convertTo == this.jpyTo){
+                this.finalAmount = this.amount * 3.5;
+            }
+            // console.log(this.convertFrom);
+            // console.log(this.convertTo);
         }
     },
     computed: {
         currentCurrency() {
-            return this.fromCurrency;
+            console.log(this.convertFrom);
+            // if(this.convertFrom == this.usdFrom){
+            //     finalAmount == this.amount;
+            // }
         }
     }
     // computed: {
