@@ -174,8 +174,11 @@
                         <option>{{jpyTo}}</option>
                     </select><br>
                 </div>
-            <button class="btn" @:click="countCurrency">Рассчитать валюту</button><br><br>
+            <button class="btn" @:click="saveCurrency">сохранить конвертацию</button><br><br>
                 <span> {{amount}} {{convertFrom}} равно {{finalAmount}} {{convertTo}}</span>
+            <hr>
+            <h1>предварительные конвертации ({{savedConvertsArr.length}})</h1>
+            {{savedConvertsArr}}
         </div>
     </body>
  </html>
